@@ -11,3 +11,8 @@ import androidx.lifecycle.ViewModel
 fun MyApp(MyViewModel: ViewModel){
 
 }
+
+@Composable
+fun boton_start(MyViewModel: ViewModel){
+
+}

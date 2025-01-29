@@ -44,4 +44,22 @@ class MyVIewModel {
             _pistaActual.value = Datos.pistas[indicePista]
         }
     }
+    fun adivinarPalabra(intento: String) {
+        if (Datos.intentos < 2) {
+            if (intento.equals(Datos.palabra, ignoreCase = true)) {
+                // Si acierta, reseteamos intentos y mostramos mensaje
+                Datos.intentos = 0
+                estadoLiveData.value = Estados.INICIO // O cualquier otro estado para indicar acierto
+            } else {
+                // Si falla, aumenta intentos y muestra nueva pista
+                Datos.intentos++
+                siguientePista()
+            }
+        } else {
+            // Si falla 3 veces, inicia una nueva ronda
+            Datos.intentos = 0
+            iniciarPartida()
+        }
+    }
+
 }

@@ -10,7 +10,6 @@ object Datos {
     var palabra: String = palabrasYPistas.keys.random() // Esto hace que seleccione una palabra aleatoria
     var pistas: List<String> = palabrasYPistas[palabra] ?: listOf() // Esto mostrará las pistas de la palabra random
     var intentos: Int = 0
-    var rondas: Int = 0
 
 }
 /**
