@@ -1,7 +1,7 @@
 package com.example.recuperacinpmdm_estebanmontes.model
 
 object Datos {
-    private val palabrasYPistas: Map<String, List<String>> = mapOf(
+    val palabrasYPistas: Map<String, List<String>> = mapOf(
         "Elefante" to listOf("Es un animal", "Tiene trompa", "Es el mamífero terrestre más grande"),
         "Mar" to listOf("Es azul", "Contiene peces", "Tiene olas"),
         "Montaña" to listOf("Es alta", "Tiene nieve en la cima", "Los alpinistas la escalan"),
