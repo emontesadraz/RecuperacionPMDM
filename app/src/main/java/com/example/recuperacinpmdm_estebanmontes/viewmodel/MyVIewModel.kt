@@ -1,5 +1,7 @@
 package com.example.recuperacinpmdm_estebanmontes.viewmodel
 
+import android.content.Context
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.recuperacinpmdm_estebanmontes.model.Datos
@@ -44,21 +46,24 @@ class MyVIewModel {
             _pistaActual.value = Datos.pistas[indicePista]
         }
     }
-    fun adivinarPalabra(intento: String) {
-        if (Datos.intentos < 2) {
+    fun adivinarPalabra(intento: String, context: Context) {
+        if (Datos.intentos < 2) { // Permitimos 3 intentos (0,1,2)
             if (intento.equals(Datos.palabra, ignoreCase = true)) {
-                // Si acierta, reseteamos intentos y mostramos mensaje
+                // Si acierta, mostramos un Toast y reseteamos intentos
                 Datos.intentos = 0
-                estadoLiveData.value = Estados.INICIO // Volver al estado INICIO (pantalla de inicio)
+                estadoLiveData.value = Estados.INICIO
+                Toast.makeText(context, "¡Has acertado!", Toast.LENGTH_SHORT).show()
             } else {
                 // Si falla, aumenta intentos y muestra nueva pista
                 Datos.intentos++
                 siguientePista()
             }
         } else {
-            // Si falla 3 veces, reiniciamos el juego
+            // Si falla 3 veces, mostramos un Toast y reiniciamos el juego
             Datos.intentos = 0
-            estadoLiveData.value = Estados.INICIO // Vuelve a la pantalla de inicio
+            estadoLiveData.value = Estados.INICIO
+            Toast.makeText(context, "¡Te has quedado sin intentos!", Toast.LENGTH_SHORT).show()
         }
     }
+
 }

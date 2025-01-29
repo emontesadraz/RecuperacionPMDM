@@ -11,6 +11,7 @@ import androidx.compose.runtime.*
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.text.font.FontWeight
@@ -56,6 +57,7 @@ fun PantallaInicio(MyViewModel: MyVIewModel) {
  */
 @Composable
 fun PantallaJuego(MyViewModel: MyVIewModel) {
+    val context = LocalContext.current // Contexto de la actividad
     var palabraUsuario by remember { mutableStateOf("") }
 
     Column(
@@ -81,13 +83,14 @@ fun PantallaJuego(MyViewModel: MyVIewModel) {
 
         // Botón para enviar la palabra ingresada
         Button(onClick = {
-            MyViewModel.adivinarPalabra(palabraUsuario)
+            MyViewModel.adivinarPalabra(palabraUsuario, context) // Pasamos el contexto
             palabraUsuario = "" // Limpia el campo después de enviar
         }) {
             Text("Enviar Respuesta")
         }
     }
 }
+
 @Preview
 @Composable
 fun IUPreview(){
