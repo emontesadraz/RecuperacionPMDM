@@ -2,10 +2,10 @@ package com.example.recuperacinpmdm_estebanmontes.model
 
 object Datos {
     val palabrasYPistas: Map<String, List<String>> = mapOf(
-        "Elefante" to listOf("Es un animal", "Tiene trompa", "Es el mamífero terrestre más grande"),
-        "Mar" to listOf("Es azul", "Contiene peces", "Tiene olas"),
-        "Montaña" to listOf("Es alta", "Tiene nieve en la cima", "Los alpinistas la escalan"),
-        "Fuego" to listOf("Es caliente", "Puede quemar", "Se usa para cocinar"),
+        "Calvo" to listOf("Alopécico", "Bola de billar", "Cabeza bombilla"),
+        "Tatuaje" to listOf("Pintura en piel", "Delincuencia", "Sin futuro"),
+        "Amigo" to listOf("Hermano de otra madre", "Mi bro", "Compañero"),
+        "Colegio" to listOf("Carcel para niños", "Centro de 'educación'", "Pasas allí 18 años de tu vida"),
     )
     var palabra: String = palabrasYPistas.keys.random() // Esto hace que seleccione una palabra aleatoria
     var pistas: List<String> = palabrasYPistas[palabra] ?: listOf() // Esto mostrará las pistas de la palabra random
