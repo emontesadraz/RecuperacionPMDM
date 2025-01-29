@@ -49,17 +49,16 @@ class MyVIewModel {
             if (intento.equals(Datos.palabra, ignoreCase = true)) {
                 // Si acierta, reseteamos intentos y mostramos mensaje
                 Datos.intentos = 0
-                estadoLiveData.value = Estados.INICIO // O cualquier otro estado para indicar acierto
+                estadoLiveData.value = Estados.INICIO // Volver al estado INICIO (pantalla de inicio)
             } else {
                 // Si falla, aumenta intentos y muestra nueva pista
                 Datos.intentos++
                 siguientePista()
             }
         } else {
-            // Si falla 3 veces, inicia una nueva ronda
+            // Si falla 3 veces, reiniciamos el juego
             Datos.intentos = 0
-            iniciarPartida()
+            estadoLiveData.value = Estados.INICIO // Vuelve a la pantalla de inicio
         }
     }
-
 }
