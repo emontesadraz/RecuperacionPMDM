@@ -46,6 +46,12 @@ class MyVIewModel {
             _pistaActual.value = Datos.pistas[indicePista]
         }
     }
+
+    /**
+     * Funcion que compara las palabras escritas por el usuario con la palabra random
+     * @param intento son los intentos que tiene el jugador
+     * @param context permite utilizar el toast para los mensajes
+     */
     fun adivinarPalabra(intento: String, context: Context) {
         if (Datos.intentos < 2) { // Permitimos 3 intentos (0,1,2)
             if (intento.equals(Datos.palabra, ignoreCase = true)) {
