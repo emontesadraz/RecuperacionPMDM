@@ -1,22 +1,18 @@
 package com.example.recuperacinpmdm_estebanmontes.model
 
-data class Datos (
-    val palabra: String,
-    val pista: String,
-    val intentos: Int,
-    val rondas: Int
-)
+object Datos {
+    private val palabrasYPistas: Map<String, List<String>> = mapOf(
+        "Elefante" to listOf("Es un animal", "Tiene trompa", "Es el mamífero terrestre más grande"),
+        "Mar" to listOf("Es azul", "Contiene peces", "Tiene olas"),
+        "Montaña" to listOf("Es alta", "Tiene nieve en la cima", "Los alpinistas la escalan"),
+        "Fuego" to listOf("Es caliente", "Puede quemar", "Se usa para cocinar"),
+    )
+    var palabra: String = palabrasYPistas.keys.random() // Esto hace que seleccione una palabra aleatoria
+    var pistas: List<String> = palabrasYPistas[palabra] ?: listOf() // Esto mostrará las pistas de la palabra random
+    var intentos: Int = 0
+    var rondas: Int = 0
 
-/**
- * Listas de las palabras a adivinar junto a sus pistas
- */
- val palabraAdivinar = mapOf(
-     "amigo" to listOf("compañero", "hermano de otra madre","Tu bro"),
-     "calvo" to listOf("alopecia","cabeza bombilla","bola de billar"),
-     "tatuaje" to listOf("tinta en piel","sin futuro","delincuente"),
-     "colegio" to listOf("carcel para niños", "sitio de 'educación'","estás allí 18 años de tu vida")
- )
-
+}
 /**
  * Estados del juego
  * INICIO: estado inicial
